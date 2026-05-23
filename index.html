@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatiYuva | Hayvan Sahiplendirme</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="girisEkrani" class="giris-container">
+  <div class="giris-card">
+    <h2>🐾 PatiYuva</h2>
+    <p>Hayvanlar yuva bekliyor</p>
+    <input type="email" id="girisEmail" placeholder="E-posta adresiniz">
+    <button onclick="kayitOl()">Kayıt ol / Giriş yap</button>
+    <div id="girisMesaj" class="result"></div>
+  </div>
+</div>
+
+<div id="anaUygulama" style="display:none;">
+  <div class="app">
+    <nav>
+      <div class="logo">PatiYuva <span class="tik">✔</span></div>
+      <div class="nav-links">
+        <button onclick="showScreen('ilanlar')">🏠 İlanlar</button>
+        <button onclick="showScreen('profil')">👤 Profil</button>
+        <button onclick="showScreen('panel')">📧 Mail Paneli</button>
+        <button onclick="cikisYap()">🚪 Çıkış</button>
+      </div>
+    </nav>
+
+    <div id="ilanlarScreen" class="screen">
+      <h2>🐾 İlanlar</h2>
+      <div class="filter">
+        <button onclick="filterIlanlar('hepsi')">Hepsi</button>
+        <button onclick="filterIlanlar('kedi')">🐱 Kedi</button>
+        <button onclick="filterIlanlar('köpek')">🐶 Köpek</button>
+      </div>
+      <div id="ilanlarListesi" class="ilan-grid"></div>
+      <div class="add-pet">
+        <h3>➕ Yeni ilan ekle</h3>
+        <input type="text" id="ilanTur" placeholder="kedi / köpek">
+        <input type="text" id="ilanIsim" placeholder="İsim">
+        <input type="text" id="ilanYas" placeholder="Yaş">
+        <input type="text" id="ilanSehir" placeholder="Şehir">
+        <textarea id="ilanAciklama" placeholder="Açıklama"></textarea>
+        <button onclick="ilanEkle()">İlanı yayınla</button>
+      </div>
+    </div>
+
+    <div id="profilScreen" class="screen hidden">
+      <h2>👤 Profilim</h2>
+      <div id="kullaniciBilgi"></div>
+    </div>
+
+    <div id="panelScreen" class="screen hidden">
+      <h2>📧 Mail Paneli</h2>
+      <div class="form-group">
+        <label>Alıcı e-posta</label>
+        <input type="email" id="mailAlıcı">
+      </div>
+      <div class="form-group">
+        <label>Konu</label>
+        <input type="text" id="mailKonu">
+      </div>
+      <div class="form-group">
+        <label>HTML içerik</label>
+        <textarea id="mailHtml" rows="8"></textarea>
+      </div>
+      <button onclick="manuelMailGonder()">✉️ Mail gönder</button>
+      <div id="mailSonuc"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
